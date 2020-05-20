@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "infra"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "infra"
+    spec:
+      containers:
+        - name: "infra"
+          image: "fincomautodeploy.azurecr.io/infra"
+          ports:
+          - containerPort: 80
